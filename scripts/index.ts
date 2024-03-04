@@ -1,6 +1,14 @@
 const buttons = document.querySelectorAll("button")
 let res: string | string[] = ""
 const display: HTMLParagraphElement = document.querySelector('.calculator__current-number')
+
+function spellChecker() {
+    const symbols = ['+', '-', '*', '/', 'sin', 'deg', 'e']
+
+    if(res[res.length -1] in symbols) {
+        const blocked = document.querySelector('.calc__math-func_buttons').childNodes
+    }
+}
 function updateDisplay() {
     if(typeof res === "string") {
         display.textContent = res
@@ -32,10 +40,17 @@ function calcResult() {
 
 function handleDefault(value) {
     if(typeof res === "string") {
+        const lastChar = res.charAt(res.length -1)
+        if(!isOperator(lastChar) || (!isOperator(value))) {
         res += value
         console.log(res)
         updateDisplay()
+        }
     }
+}
+
+function isOperator(value: string) {
+    return ["*", "-", "+", "/"].indexOf(value) !== -1
 }
 
 buttons.forEach(item => {

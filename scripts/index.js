@@ -1,6 +1,12 @@
 var buttons = document.querySelectorAll("button");
 var res = "";
 var display = document.querySelector('.calculator__current-number');
+function spellChecker() {
+    var symbols = ['+', '-', '*', '/', 'sin', 'deg', 'e'];
+    if (res[res.length - 1] in symbols) {
+        var blocked = document.querySelector('.calc__math-func_buttons').childNodes;
+    }
+}
 function updateDisplay() {
     if (typeof res === "string") {
         display.textContent = res;
@@ -28,10 +34,16 @@ function calcResult() {
 }
 function handleDefault(value) {
     if (typeof res === "string") {
-        res += value;
-        console.log(res);
-        updateDisplay();
+        var lastChar = res.charAt(res.length - 1);
+        if (!isOperator(lastChar) || (!isOperator(value))) {
+            res += value;
+            console.log(res);
+            updateDisplay();
+        }
     }
+}
+function isOperator(value) {
+    return ["*", "-", "+", "/"].indexOf(value) !== -1;
 }
 buttons.forEach(function (item) {
     item.addEventListener('click', function () {
@@ -51,3 +63,4 @@ buttons.forEach(function (item) {
         }
     });
 });
+// I wanted to do crazy calculator, i've done a shit again...
