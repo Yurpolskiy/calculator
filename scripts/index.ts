@@ -1,32 +1,61 @@
-interface ICalculator {
-    firstNum: number | null,
-    secondNum: number | null,
-    calculate(operation: string): number
-}
-
-class Calculator implements ICalculator  {
-
-    constructor(public firstNum: number, public secondNum: number) {}
-
-    calculate(operation: string) {
-        if(this.firstNum === null || this.secondNum === null) {
-            alert("Invalid input data!")
-        }
-
-        switch(operation) {
-            case '+': return this.firstNum + this.secondNum
-            case '-': return this.firstNum - this.secondNum
-            case '*': return this.firstNum * this.secondNum
-            case '/': return this.firstNum / this.secondNum
-        }
+const buttons = document.querySelectorAll("button")
+let res: string | string[] = ""
+const display: HTMLParagraphElement = document.querySelector('.calculator__current-number')
+function updateDisplay() {
+    if(typeof res === "string") {
+        display.textContent = res
     }
 }
 
-const firstNumElem = document.querySelector('.firstNum') as HTMLInputElement
-const secondNumElem = document.querySelector('.secondNum') as HTMLInputElement
+function clearResult(){
+    console.clear()
+    res = ""
+    updateDisplay()
+}
 
-const firstNum = parseFloat(firstNumElem.value)
-const secondNum = parseFloat(secondNumElem.value)
+function delLastChar() {
+    if(typeof res === "string") {
+        res = res.slice(0, -1)
+        console.log(res)
+        updateDisplay()
+    }
+}
 
-const calc = new Calculator(firstNum, secondNum)
+function calcResult() {
+    if(typeof res === "string") {
+        res = eval(res)
+        console.log(res)
+        res = String(res)
+        updateDisplay()
+    }
+}
 
+function handleDefault(value) {
+    if(typeof res === "string") {
+        res += value
+        console.log(res)
+        updateDisplay()
+    }
+}
+
+buttons.forEach(item => {
+    item.addEventListener('click', ()=> {
+    const value = item.value
+
+        switch(value) {
+            case "clear":
+                clearResult()
+                break
+            case "=":
+                calcResult()
+                break
+            case "del":
+                delLastChar()
+                break
+            default:
+                handleDefault(value)
+        }
+    })
+})
+
+// I wanted to do crazy calculator, i've done a shit again...

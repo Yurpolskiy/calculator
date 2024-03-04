@@ -22,3 +22,8 @@ button {
     background-color: #29A8FF;
     transition: color, background-color .2s ease-in;
 }
+
+.calc__operations > button:active {
+    background-color: #3f3b3b;
+    transition: background-color .2s linear;
+}

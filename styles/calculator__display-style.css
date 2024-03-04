@@ -1,0 +1,10 @@
+.calculator__output-display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.calculator__current-number {
+    color: white;
+    font-size: 40px;
+}
