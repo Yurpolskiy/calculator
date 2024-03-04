@@ -1,0 +1,67 @@
+button {
+    width: 62px;
+    height: 62px;
+    border: none;
+}
+
+.calc__digits_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.calc__digits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 12px;
+}
+
+.btn_zero {
+    grid-column: 1/3;
+    width: 100%;
+}
+
+.calc__operations > :not(:last-child) {
+
+    margin-bottom: 15px;
+}
+
+.calc__operations > :not(:first-child) {
+    height: 96px;
+}
+
+
+ /* Button styles */
+
+
+.calc__digits > button, .calc__math-func_buttons > button, .calc__upper-row > button {
+    background-color: #303136;
+    border-radius: 16px;
+    color: #29A8FF;
+    border: none;
+}
+
+.calc__digits > button, .calc__operations > button {
+    font-size: 32px;
+}
+
+.calc__upper-row > button {
+    font-size: 20px;
+}
+
+.calc__math-func_buttons > button {
+    width: 62px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.calc__operations > button {
+    background-color: #005DB2;
+    color: #339DFF;
+    border-radius: 16px;
+}
+
+.btn_del {
+    background-image: url("./../public/back-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}

@@ -1,0 +1,24 @@
+button {
+    cursor: pointer!important;
+    z-index: 2;
+}
+
+.calc__digits > button:hover,
+.calc__upper-row > button:hover,
+.calc__math-func_buttons > button:hover {
+    background-color: #4d4b4b;
+    transition: background-color .2s ease-in;
+}
+.calc__digits > button:active,
+.calc__upper-row > button:active,
+.calc__math-func_buttons > button:active {
+    background-color: #252424;
+    transition: background-color .2s ease-in;
+}
+
+
+.calc__operations > button:hover {
+    color: white;
+    background-color: #29A8FF;
+    transition: color, background-color .2s ease-in;
+}
